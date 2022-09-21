@@ -9,4 +9,7 @@
 </div>
 <p>
     @Model.wind.deg
+    @foreach (var item in Model.weather) {
+        <img src="https://openweathermap.org/img/wn/@item.icon@@2x.png">
+    }
 </p>

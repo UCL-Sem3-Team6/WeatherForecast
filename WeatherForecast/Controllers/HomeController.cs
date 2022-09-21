@@ -16,7 +16,7 @@ namespace WeatherForecast.Controllers
         public IActionResult Index()
         {
             HttpClient client = new HttpClient();
-            string URL = "http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=f1cee7f9e0458329352f11617b9d5bb2";
+            string URL = "http://api.openweathermap.org/data/2.5/weather?q=Denmark,Odense&APPID=f1cee7f9e0458329352f11617b9d5bb2";
             var result = client.GetFromJsonAsync<Root>(URL);
             return View(result.Result);
         }
