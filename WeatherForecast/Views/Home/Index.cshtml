@@ -1,4 +1,4 @@
-﻿@model Root
+﻿@model WeatherInfo.Root
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -7,6 +7,36 @@
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+
+
+<table>
+    <thead>
+    <th><h1>8-day forecast</h1></th>
+    </thead>
+
+        @foreach (var item in Model.weather)
+        {
+            <p>Main: @item.main </p>
+            <p>Desc: @item.description </p>
+            <p>Icon: @item.icon </p>
+            <p>Id: @item.id </p>
+        }
+        <tr>
+            <td>Mon, Sep 27</td>
+            <td>IKON | 18 grader | kort beskrivelse</td>
+        </tr>
+        <tr>
+            <td>Mon, Sep 27</td>
+            <td>IKON | 18 grader | kort beskrivelse</td>
+        </tr>
+        <tr>
+            <td>Mon, Sep 27</td>
+            <td>IKON | 18 grader | kort beskrivelse</td>
+        </tr>
+    </tr>
+</table>
+
+
 <p>
     @Model.wind.deg
     @foreach (var item in Model.weather) {
