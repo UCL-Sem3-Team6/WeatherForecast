@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using System.Diagnostics;
 using System.Net;
 using WeatherForecast.Models;
+using static WeatherForecast.Models.WeatherInfo;
 
 namespace WeatherForecast.Controllers
 {
@@ -17,20 +18,20 @@ namespace WeatherForecast.Controllers
 
         public IActionResult Index()
         {
-            using (HttpClient client = new HttpClient())
-            {
-                string URL = "http://api.openweathermap.org/data/2.5/forecast?q=Odense,DK&cnt=8&appid=f1cee7f9e0458329352f11617b9d5bb2";
-                var json = client.GetFromJsonAsync<WeatherInfo.Root>(URL);
-                var result = JsonConvert.DeserializeObject<WeatherInfo.Root>(json);
+            //using (HttpClient client = new HttpClient())
+            //{
+            //    string URL = "http://api.openweathermap.org/data/2.5/forecast?q=Odense,DK&cnt=8&appid=f1cee7f9e0458329352f11617b9d5bb2";
+            //    var json = client.GetFromJsonAsync<WeatherInfo.Root>(URL);
+            //    var result = JsonConvert.DeserializeObject<WeatherInfo.Root>(json);
 
-                WeatherInfo.Root output = result;
-                return Ok(output);
-            }
+            //    //WeatherInfo.Root output = result;
+            //    return Ok(output);
+            //}
 
-            //HttpClient client = new HttpClient();
-            //string URL = "http://api.openweathermap.org/data/2.5/forecast?q=Odense,DK&cnt=8&appid=f1cee7f9e0458329352f11617b9d5bb2";
-            //var result = client.GetFromJsonAsync<Root>(URL);
-            //return View(result.Result);
+            HttpClient client = new HttpClient();
+            string URL = "https://api.openweathermap.org/data/2.5/forecast?lat=44.34&lon=10.99&appid=f1cee7f9e0458329352f11617b9d5bb2";
+            var result = client.GetFromJsonAsync<Root>(URL);
+            return View(result.Result);
         }
 
         public IActionResult Privacy()

@@ -2,45 +2,33 @@
 @{
     ViewData["Title"] = "Home Page";
 }
+<div class="text-left">
+    <h1 class="display-4">Weather</h1>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+    <div>
 
-
-<table>
-    <thead>
-    <th><h1>8-day forecast</h1></th>
-    </thead>
-
-        @foreach (var item in Model.weather)
+        @foreach (var item in Model.list)
         {
-            <p>Main: @item.main </p>
-            <p>Desc: @item.description </p>
-            <p>Icon: @item.icon </p>
-            <p>Id: @item.id </p>
+            @foreach (var item2 in item.weather)
+            {
+
+                <p> Country: @Model.city.country</p>
+
+                <p> Date: @item.dt_txt</p>
+
+                <p>Condition: @item2.description <img src="http://openweathermap.org/img/wn/10d@2x.png"></p>
+
+                <p>Temperature: @item.main.temp</p>
+
+                <p>Humidity: @item.main.humidity</p>
+
+                <p>Sea level:@item.main.sea_level</p>
+
+                <p>Pressure:@item.main.pressure</p>
+
+            }
+            //Billde er taget fra opgaven http://openweathermap.org/img/wn/10d@2x.png
+            //<img src="https://openweathermap.org/img/wn/@item.icon@@2x.png">
         }
-        <tr>
-            <td>Mon, Sep 27</td>
-            <td>IKON | 18 grader | kort beskrivelse</td>
-        </tr>
-        <tr>
-            <td>Mon, Sep 27</td>
-            <td>IKON | 18 grader | kort beskrivelse</td>
-        </tr>
-        <tr>
-            <td>Mon, Sep 27</td>
-            <td>IKON | 18 grader | kort beskrivelse</td>
-        </tr>
-    </tr>
-</table>
-
-
-<p>
-    @Model.wind.deg
-    @foreach (var item in Model.weather) {
-        //Billde er taget fra opgaven http://openweathermap.org/img/wn/10d@2x.png
-        <img src="https://openweathermap.org/img/wn/@item.icon@@2x.png">
-    }
-</p>
+    </div>
+</div>
