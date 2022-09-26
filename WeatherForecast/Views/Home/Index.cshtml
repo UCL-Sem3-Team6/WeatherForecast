@@ -1,4 +1,4 @@
-﻿@model Root
+﻿@model WeatherForecast.Models.Root
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -8,8 +8,12 @@
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
 <p>
-    @Model.wind.deg
-    @foreach (var item in Model.weather) {
+    
+    @foreach (var item in Model.list) {
+        @foreach (var item2 in item.weather)
+        {
+            @
+        }
         //Billde er taget fra opgaven http://openweathermap.org/img/wn/10d@2x.png
         <img src="https://openweathermap.org/img/wn/@item.icon@@2x.png">
     }
