@@ -11,6 +11,7 @@ namespace WeatherForecast.Models{
         public int grnd_level { get; set; }
         public int humidity { get; set; }
         public double temp_kf { get; set; }
+ 
     }
 
 }

@@ -7,14 +7,49 @@
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+
 <p>
     
     @foreach (var item in Model.list) {
         @foreach (var item2 in item.weather)
         {
-            @
+        
+           <p> Country: 
+                @Model.city.country
+           </p> 
+
+            <p> Date: 
+                @item.dt_txt
+            </p>
+        <p> Condition: 
+                @item2.description
+        </p>
+
+        <p> Tempeture: 
+                @item.main.temp
+        </p>
+
+         
+         <p>Humidity: 
+                @item.main.humidity
+         </p>
+             <p> Sea level: 
+                @item.main.sea_level
+             </p>
+        <p> Country: 
+                @Model.city.country
+        </p>
+         <p> Presure: 
+                @item.main.pressure
+         </p>
+        
+         <p>
+            <img src="http://openweathermap.org/img/wn/10d@2x.png">
+         </p>
+        
+         
         }
         //Billde er taget fra opgaven http://openweathermap.org/img/wn/10d@2x.png
-        <img src="https://openweathermap.org/img/wn/@item.icon@@2x.png">
+        //<img src="https://openweathermap.org/img/wn/@item.icon@@2x.png">
     }
 </p>
